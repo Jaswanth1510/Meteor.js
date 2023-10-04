@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>User can select any one of the role</h1>
+        <form>
+            <input type="radio" id="admin" name="roles" value="ADMIN">
+            <label for="admin">Admin</label><br>
+
+            <input type="radio" id="lender" name="roles" value="LENDER">
+            <label for="lender">Lender</label><br>
+
+            <input type="radio" id="borrower" name="roles" value="BORROWER">
+            <label for="Borrower">Borrower</label><br><br>
+
+            <input type="button" value="Submit" onclick="navigateToSelectedRole()">
+        </form>
+
+        <script>
+            function navigateToSelectedRole() {
+                var selectedRole = document.querySelector('input[name="roles"]:checked');
+                if (selectedRole) {
+                    var roleValue = selectedRole.value;
+                    switch (roleValue) {
+                        case "ADMIN":
+                            window.location.href = "admin.html";
+                            break;
+                        case "LENDER":
+                            window.location.href = "lender.html";
+                            break;
+                        case "BORROWER":
+                            window.location.href = "borrower.html";
+                            break;
+                        default:
+                            // Handle the default case if necessary
+                            break;
+                    }
+                }
+            }
+        </script>
+
+        <p>After Completing the role the user can check their status</p>
+        <a href="users_dashboard.html">Clickhere</a>
+    </body>
+</html>

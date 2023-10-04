@@ -1,0 +1,109 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // Simulated transaction data (replace with actual data retrieval)
+        var transactions = [
+            { type: "Lender", amount: 500.00 },
+            { type: "Borrower", amount: -300.00 },
+            { type: "Lender", amount: 200.00 },
+            // Add more transactions as needed
+        ];
+
+        function displayTransactions() {
+            var adminOutput = document.getElementById("adminOutput");
+            adminOutput.innerHTML = ""; // Clear previous data
+
+            for (var i = 0; i < transactions.length; i++) {
+                var transaction = transactions[i];
+                var transactionType = transaction.type;
+                var transactionAmount = transaction.amount;
+
+                var transactionEntry = document.createElement("p");
+                transactionEntry.textContent = transactionType + " transaction: $" + transactionAmount.toFixed(2);
+
+                adminOutput.appendChild(transactionEntry);
+            }
+        }
+    </script>
+</head>
+<body style="background-color: lightgrey;">
+    <h1>Admin Page</h1>
+
+    <h2>Overall Transactions</h2>
+
+    <button onclick="displayTransactions();">Display Transactions</button>
+
+    <div id="adminOutput"></div>
+</body>
+</html>
+
+
+
+
+
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        // Simulated transaction data for lenders and borrowers
+        var lenderTransactions = [
+            { type: "Credit", amount: 1000.00 },
+            { type: "Debit", amount: -300.00 },
+            { type: "Credit", amount: 500.00 },
+            { type: "Credit", amount: 10000.00 },
+            { type: "Debit", amount: -30320.00 },
+            { type: "Credit", amount: 50430.00 }
+            // Add more lender transactions as needed
+        ];
+
+        var borrowerTransactions = [
+            { type: "Credit", amount: 200.00 },
+            { type: "Debit", amount: -150.00 },
+            { type: "Credit", amount: 300.00 },
+            { type: "Credit", amount: 20000.00 },
+            { type: "Debit", amount: -154530.00 },
+            { type: "Credit", amount: 308760.00 }
+            // Add more borrower transactions as needed
+        ];
+
+        function displayLenderTransactions() {
+            displayTransactions(lenderTransactions, "Lender Transactions");
+        }
+
+        function displayBorrowerTransactions() {
+            displayTransactions(borrowerTransactions, "Borrower Transactions");
+        }
+
+        function displayTransactions(transactions, heading) {
+            var adminOutput = document.getElementById("adminOutput");
+            adminOutput.innerHTML = ""; // Clear previous data
+
+            var headingElement = document.createElement("h2");
+            headingElement.textContent = heading;
+            adminOutput.appendChild(headingElement);
+
+            for (var i = 0; i < transactions.length; i++) {
+                var transaction = transactions[i];
+                var transactionType = transaction.type;
+                var transactionAmount = transaction.amount;
+
+                var transactionEntry = document.createElement("p");
+                transactionEntry.textContent = transactionType + " transaction: $" + transactionAmount.toFixed(2);
+
+                adminOutput.appendChild(transactionEntry);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Admin Page</h1>
+
+    <button onclick="displayLenderTransactions();">Display Lender Transactions</button>
+    <button onclick="displayBorrowerTransactions();">Display Borrower Transactions</button>
+
+    <div id="adminOutput"></div>
+</body>
+</html>
